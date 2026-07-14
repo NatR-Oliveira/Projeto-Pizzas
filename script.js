@@ -14,7 +14,7 @@ pizzaJson.map((item, index) => {
     pizzaItem.querySelector('.pizza-item--desc').innerHTML = item.description;
     pizzaItem.querySelector('.pizza-item--price').innerHTML = `R$ ${item.price.toFixed(2)}`;
     pizzaItem.querySelector('.pizza-item--img img').src = item.img;
-    pizzaItem.querySelector('a').addEventListener('click', (e)=>{
+   pizzaItem.querySelector('a').addEventListener('click', (e)=>{
         e.preventDefault();
 
         let key = e.target.closest('.pizza-item').getAttribute('data-key');
@@ -24,11 +24,17 @@ pizzaJson.map((item, index) => {
         c('.pizzaInfo h1').innerHTML = pizzaJson[key].name;
         c('.pizzaInfo--desc').innerHTML = pizzaJson[key].description;
         c('.pizzaBig img').src = pizzaJson[key].img;
-        c('.pizzaInfo--actualPrice').innerHTML = `R$ ${pizzaJson[key].price.toFixed(2)}`;
+        
+
+        let initialPrice = pizzaJson[key].price; 
+        c('.pizzaInfo--actualPrice').innerHTML = `R$ ${initialPrice.toFixed(2)}`;
+
+
         c('.pizzaInfo--size.selected').classList.remove('selected');
         
         cs('.pizzaInfo--size').forEach((size, sizeIndex)=>{
-            if(sizeIndex ==2){
+
+            if(sizeIndex == 2){
                 size.classList.add('selected');
             }
             size.querySelector('span').innerHTML = pizzaJson[key].sizes[sizeIndex];
@@ -39,7 +45,7 @@ pizzaJson.map((item, index) => {
         c('.pizzaWindowArea').style.opacity = 0;
         c('.pizzaWindowArea').style.display = 'flex';
         setTimeout(()=>{
-        c('.pizzaWindowArea').style.opacity = 1;
+            c('.pizzaWindowArea').style.opacity = 1;
         }, 200);
     });
 
@@ -74,9 +80,20 @@ cs('.pizzaInfo--size').forEach((size, sizeIndex) => {
     size.addEventListener('click',(e)=>{
          c('.pizzaInfo--size.selected').classList.remove('selected');
          size.classList.add('selected');
+         
+         let basePrice = pizzaJson[modalKey].price; 
+         let adjustedPrice = basePrice; 
+         
+         if(sizeIndex === 0) {
+             adjustedPrice = basePrice * 0.8; 
+         }
+         if(sizeIndex === 1) {
+             adjustedPrice = basePrice * 0.9; 
+         }
+         
+         c('.pizzaInfo--actualPrice').innerHTML = `R$ ${adjustedPrice.toFixed(2)}`;
     });
 });
-
 c('.pizzaInfo--addButton').addEventListener('click', () => {
     let size = parseInt(c('.pizzaInfo--size.selected').getAttribute('data-key'));
 
@@ -120,7 +137,18 @@ function updateCart(){
 
         for(let i in cart){
             let pizzaItem = pizzaJson.find((item) => item.id == cart[i].id);
-            subtotal += pizzaItem.price * cart[i].qt;
+
+
+            let adjustedPrice = pizzaItem.price; 
+            
+            if(cart[i].size === 0) {
+                adjustedPrice = pizzaItem.price * 0.8; 
+            }
+            if(cart[i].size === 1) {
+                adjustedPrice = pizzaItem.price * 0.9; 
+            }
+
+            subtotal += adjustedPrice * cart[i].qt;
             
             let cartItem = c('.models .cart--item').cloneNode(true);
 
@@ -170,13 +198,27 @@ function updateCart(){
         c('aside').style.left = '100vw';
     }
 }
+
+
+
 c('.cart--finalizar').addEventListener('click', () => {
     if(cart.length > 0) {
-
-        alert("Pedido realizado com sucesso! Obrigado por comprar na Oliveira's Pizzas!");
+        c('aside').classList.remove('show');
+        c('aside').style.left = '100vw';
         
-        cart = []; 
+        cart = [];
+        updateCart();
         
-        updateCart(); 
+        c('.success-window').style.display = 'flex';
+        setTimeout(() => {
+            c('.success-window').style.opacity = 1;
+        }, 200);
     }
+});
+
+c('.success-btn').addEventListener('click', () => {
+    c('.success-window').style.opacity = 0;
+    setTimeout(() => {
+        c('.success-window').style.display = 'none';
+    }, 500);
 });

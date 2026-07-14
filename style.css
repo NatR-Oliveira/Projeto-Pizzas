@@ -65,7 +65,7 @@ main {
 h1 {
     font-family: 'Hepta Slab', Helvetica, Arial;
     color: #2c3e50; 
-    font-size: 36px; 
+    font-size: 40px; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
     margin-bottom: 40px;
     position: relative; 
@@ -129,7 +129,7 @@ h1::after {
 
 .pizza-item--img {
     width: 98%;
-    height: 210px; 
+    height: 190px; 
     background-color: transparent; 
     border-radius: 0; 
     box-shadow: none; 
@@ -418,12 +418,12 @@ h1::after {
 
 .leaf {
     position: absolute;
-    width: 65px; 
-    height: 65px; 
+    width: 25px; 
+    height: 75px; 
     background-color: #c4d6b5; 
-    border-radius: 0 50% 0 50%;
+    border-radius: 0 100% 0 100%; 
     opacity: 0.5; 
-    top: -15%; 
+    top: -15%;
 }
 
 @keyframes fall {
@@ -433,17 +433,71 @@ h1::after {
 
 
 .leaf:nth-child(1) { left: 5%; animation: fall 16s linear infinite; }
-.leaf:nth-child(2) { left: 15%; animation: fall 22s linear infinite 2s; width: 50px; height: 50px; }
+.leaf:nth-child(2) { left: 15%; animation: fall 22s linear infinite 2s; width: 20px; height: 60px; }
 .leaf:nth-child(3) { left: 25%; animation: fall 19s linear infinite 5s; }
-.leaf:nth-child(4) { left: 35%; animation: fall 25s linear infinite 1s; width: 45px; height: 45px; background-color: #a4b996; }
+.leaf:nth-child(4) { left: 35%; animation: fall 25s linear infinite 1s; width: 15px; height: 45px; background-color: #a4b996; }
 .leaf:nth-child(5) { left: 45%; animation: fall 18s linear infinite 4s; }
-.leaf:nth-child(6) { left: 55%; animation: fall 21s linear infinite 7s; width: 75px; height: 75px; }
-.leaf:nth-child(7) { left: 65%; animation: fall 17s linear infinite 3s; width: 55px; height: 55px; }
+.leaf:nth-child(6) { left: 55%; animation: fall 21s linear infinite 7s; width: 30px; height: 90px; }
+.leaf:nth-child(7) { left: 65%; animation: fall 17s linear infinite 3s; width: 22px; height: 66px; }
 .leaf:nth-child(8) { left: 75%; animation: fall 24s linear infinite 6s; background-color: #a4b996; }
-.leaf:nth-child(9) { left: 85%; animation: fall 15s linear infinite 8s; width: 60px; height: 60px; }
+.leaf:nth-child(9) { left: 85%; animation: fall 15s linear infinite 8s; width: 28px; height: 84px; }
 .leaf:nth-child(10) { left: 90%; animation: fall 20s linear infinite 2s; }
-.leaf:nth-child(11) { left: 10%; animation: fall 23s linear infinite 9s; width: 70px; height: 70px; }
-.leaf:nth-child(12) { left: 80%; animation: fall 19s linear infinite 11s; width: 40px; height: 40px; }
+.leaf:nth-child(11) { left: 10%; animation: fall 23s linear infinite 9s; width: 35px; height: 105px; }
+.leaf:nth-child(12) { left: 80%; animation: fall 19s linear infinite 11s; width: 18px; height: 54px; }
+
+.success-window {
+    position: fixed;
+    left: 0; top: 0; bottom: 0; right: 0;
+    background-color: rgba(234, 242, 227, 0.9); 
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+
+.success-body {
+    background-color: #FFF;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 20px;
+}
+
+.success-body h2 {
+    color: #2c3e50;
+    font-family: 'Hepta Slab', Helvetica, Arial;
+    margin-top: 0;
+    font-size: 28px;
+}
+
+.success-body p {
+    color: #777;
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.success-btn {
+    background-color: #48d05f;
+    color: #FFF;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0px 5px 15px rgba(72, 208, 95, 0.3);
+    transition: all 0.2s;
+}
+
+.success-btn:hover {
+    background-color: #35af4a;
+    transform: scale(1.05);
+}
 
 @media (max-width:1000px) {
     .pizza-area {
@@ -469,15 +523,19 @@ h1::after {
     }
 
    aside {
-    background-color: #FFFFFF; 
-    width: 0vw;
-    font-family: 'Hepta Slab', Helvetica, Arial;
-    transition: all ease .2s;
-    overflow-x: hidden;
-    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.08); 
-}
+        width: auto;
+        position: fixed;
+        left: 100vw; 
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: #FFFFFF; 
+        transition: all ease .2s;
+        z-index: 999; 
+    }
+    
     aside.show {
-        width:auto;
+        width: auto;
     }
     .cart--area {
         width:100vw;
