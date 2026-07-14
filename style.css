@@ -1,13 +1,16 @@
+:root {
+    --primary-color: #399ade;
+}
 * {
     box-sizing: border-box;
 }
 body {
-    background-color:#EEE;
-    font-family:'Lato',Helvetica,Arial;
-    font-size:15px;
-    display:flex;
-    margin:0;
-    min-height:100vh;
+    background-color: #eaf2e3; 
+    font-family: 'Lato', Helvetica, Arial;
+    font-size: 15px;
+    display: flex;
+    margin: 0;
+    min-height: 100vh;
 }
 .models {
     display:none;
@@ -42,11 +45,12 @@ header {
 }
 
 aside {
-    background-color:#9ccbe6;
-    width:0vw;
-    font-family:'Hepta Slab', Helvetica, Arial;
-    transition:all ease .2s;
-    overflow-x:hidden;
+    background-color: #FFFFFF; 
+    width: 0vw;
+    font-family: 'Hepta Slab', Helvetica, Arial;
+    transition: all ease .2s;
+    overflow-x: hidden;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.08); 
 }
 aside.show {
     width:30vw;
@@ -59,80 +63,144 @@ main {
     padding:20px;
 }
 h1 {
-    font-family:'Hepta Slab', Helvetica, Arial;
+    font-family: 'Hepta Slab', Helvetica, Arial;
+    color: #2c3e50; 
+    font-size: 36px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    position: relative; 
+}
+
+
+h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color, #399ade);
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+
+.pizzaInfo h1 {
+    margin-top: 20px;
+    font-size: 32px;
 }
 .pizza-area {
     display:grid;
     grid-template-columns: repeat(3, 1fr);
 }
+
+
 .pizza-item {
-    text-align: center;
-    max-width:250px;
-    font-family:'Hepta Slab', Helvetica, Arial;
-    margin:0 auto 50px auto;
+    background-color: #FFF;
+    border-radius: 15px; 
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05); 
+    max-width: 280px;
+    margin: 0 auto 50px auto;
+    overflow: hidden; 
+    position: relative;
+    padding-bottom: 45px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 70px;
 }
-.pizza-item a {
-    display:flex;
-    flex-direction: column;
-    align-items:center;
-    text-decoration: none;
-}
-.pizza-item--img {
-    width:200px;
-    height:200px;
-    background-color:#EEE;
-    border-radius:100px;
-    box-shadow:0px 10px 50px rgba(0, 0, 0, 0.2);
-}
-.pizza-item--img img {
-    width:100%;
-    height:auto;
-}
-.pizza-item--add {
-    width:50px;
-    height:50px;
-    line-height:50px;
-    border-radius:25px;
-    background-color:#388bc5;
-    text-align:center;
-    color:#FFF;
-    font-size:22px;
-    cursor:pointer;
-    margin-top:-25px;
-    transition:all ease .2s;
-}
-.pizza-item a:hover .pizza-item--add {
-    background-color:#244c88;
-}
-.pizza-item--price {
-    font-size:15px;
-    color:#333;
-    margin-top:5px;
-}
-.pizza-item--name {
-    font-size:20px;
-    font-weight: bold;
-    color:#000;
-    margin-top:5px;
-}
+
 .pizza-item--desc {
-    font-size:13px;
-    color:#555;
-    margin-top:10px;
+    font-size: 13px;
+    color: #777;
+    margin-top: 10px;
+    padding: 0 15px; 
+    line-height: 1.4;
+}
+
+.pizza-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pizza-item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-decoration: none;
+    width: 100%; 
+}
+
+.pizza-item--img {
+    width: 98%;
+    height: 210px; 
+    background-color: transparent; 
+    border-radius: 0; 
+    box-shadow: none; 
+}
+
+.pizza-item--img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.pizza-item--add {
+    position: absolute; 
+    bottom: 15px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    background-color: var(--primary-color, #399ade);
+    text-align: center;
+    color: #FFF;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all ease .2s;
+    z-index: 2; 
+}
+
+.pizza-item--add:hover {
+    background-color: #244c88;
+}
+
+.pizza-item--name,
+.pizza-item--price,
+.pizza-item--desc {
+    text-align: center; 
+    width: 100%; 
+    padding: 0 15px; 
+}
+
+.pizza-item--name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 15px;
+}
+
+.pizza-item--price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
 }
 
 .pizzaWindowArea {
-    position:fixed;
-    left:0;
-    top:0;
-    bottom:0;
-    right:0;
-    background-color:rgba(255, 255, 255, 0.5);
-    display:none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: none;
     transition: all ease .5s;
     justify-content: center;
     align-items: center;
-    overflow-y:auto;
+    overflow-y: auto;
+    
+
+    z-index: 999; 
 }
 .pizzaWindowBody {
     width:900px;
@@ -171,6 +239,7 @@ h1 {
     color:#999;
     margin-top:10px;
     font-family:'Lato',Helvetica,Arial;
+    margin-bottom: 8px;
 }
 .pizzaInfo--sector {
     color:#CCC;
@@ -300,35 +369,81 @@ h1 {
     color:#000;
 }
 .cart--totalitem {
-    padding:15px 0;
-    border-top:1px solid #79b9dd;
-    color:#315970;
-    display:flex;
+    padding: 15px 0;
+    border-top: 1px solid #E5E5E5; 
+    color: #555; 
+    display: flex;
     justify-content: space-between;
-    font-size:15px;
+    font-size: 15px;
 }
 .cart--totalitem span:first-child {
     font-weight: bold;
 }
 .cart--totalitem.big {
-    font-size:20px;
-    color:#000;
+    font-size: 22px;
+    color: #000;
     font-weight: bold;
+    border-top: 2px solid #EEE; 
 }
 .cart--finalizar {
-    padding:20px 30px;
-    border-radius:20px;
-    background-color:#48d05f;
-    color:#FFF;
-    cursor:pointer;
-    text-align:center;
-    margin-top:20px;
-    border:2px solid #63f77c;
+    padding: 20px 30px;
+    border-radius: 10px; 
+    background-color: #399ade; 
+    color: #FFF;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    border: none; 
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0px 5px 15px rgba(57, 154, 222, 0.3); 
     transition: all ease .2s;
 }
 .cart--finalizar:hover {
-    background-color:#35af4a;
+    background-color: #244c88;
+    transform: translateY(-2px); 
 }
+
+.leaves-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+
+.leaf {
+    position: absolute;
+    width: 65px; 
+    height: 65px; 
+    background-color: #c4d6b5; 
+    border-radius: 0 50% 0 50%;
+    opacity: 0.5; 
+    top: -15%; 
+}
+
+@keyframes fall {
+    0% { top: -10%; transform: translateX(0) rotate(0deg); }
+    100% { top: 110%; transform: translateX(150px) rotate(720deg); }
+}
+
+
+.leaf:nth-child(1) { left: 5%; animation: fall 16s linear infinite; }
+.leaf:nth-child(2) { left: 15%; animation: fall 22s linear infinite 2s; width: 50px; height: 50px; }
+.leaf:nth-child(3) { left: 25%; animation: fall 19s linear infinite 5s; }
+.leaf:nth-child(4) { left: 35%; animation: fall 25s linear infinite 1s; width: 45px; height: 45px; background-color: #a4b996; }
+.leaf:nth-child(5) { left: 45%; animation: fall 18s linear infinite 4s; }
+.leaf:nth-child(6) { left: 55%; animation: fall 21s linear infinite 7s; width: 75px; height: 75px; }
+.leaf:nth-child(7) { left: 65%; animation: fall 17s linear infinite 3s; width: 55px; height: 55px; }
+.leaf:nth-child(8) { left: 75%; animation: fall 24s linear infinite 6s; background-color: #a4b996; }
+.leaf:nth-child(9) { left: 85%; animation: fall 15s linear infinite 8s; width: 60px; height: 60px; }
+.leaf:nth-child(10) { left: 90%; animation: fall 20s linear infinite 2s; }
+.leaf:nth-child(11) { left: 10%; animation: fall 23s linear infinite 9s; width: 70px; height: 70px; }
+.leaf:nth-child(12) { left: 80%; animation: fall 19s linear infinite 11s; width: 40px; height: 40px; }
 
 @media (max-width:1000px) {
     .pizza-area {
@@ -353,15 +468,14 @@ h1 {
         padding-top:60px;
     }
 
-    aside {
-        width:auto;
-        position:fixed;
-        left:100vw;
-        right:0;
-        top:0;
-        bottom:0;
-        transition: all ease .2s;
-    }
+   aside {
+    background-color: #FFFFFF; 
+    width: 0vw;
+    font-family: 'Hepta Slab', Helvetica, Arial;
+    transition: all ease .2s;
+    overflow-x: hidden;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.08); 
+}
     aside.show {
         width:auto;
     }
@@ -403,6 +517,9 @@ h1 {
         font-size:25px;
         padding:0px 25px;
     }
+    .pizzaInfo--qtarea button:focus-visible {
+    outline: 2px solid var(--primary-color);
+}
     .pizzaInfo--qt {
         line-height: 60px;
         font-size:20px;
