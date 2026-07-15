@@ -4,7 +4,7 @@ Um e-commerce de delivery focado em experiência do usuário (UX) e design limpo
 
 > 🔗 https://natr-oliveira.github.io/Projeto-Pizzas/
 
-] <img width="2485" height="900" alt="Captura de tela 2026-07-14 215220" src="https://github.com/user-attachments/assets/c5ba29f7-b643-4698-9ae1-c18a9d21238f" />
+ <img width="2485" height="900" alt="Captura de tela 2026-07-14 215220" src="https://github.com/user-attachments/assets/c5ba29f7-b643-4698-9ae1-c18a9d21238f" />
 
 ## ✨ Funcionalidades
 
