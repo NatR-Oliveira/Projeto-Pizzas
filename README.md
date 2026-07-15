@@ -2,9 +2,9 @@
 
 Um e-commerce de delivery focado em experiência do usuário (UX) e design limpo. Este projeto simula a interface completa de um pedido de pizza, desde a escolha no cardápio até a finalização no carrinho, com cálculos dinâmicos de preço e animações fluídas.
 
-> 🔗 **[Clique aqui para ver o projeto online] (coloque_o_link_do_github_pages_aqui)**
+> 🔗 **[Clique aqui para ver o projeto online] (https://natr-oliveira.github.io/Projeto-Pizzas/)**
 
-![Preview do Projeto](coloque_o_link_de_um_print_da_tela_aqui.jpg)
+![Preview do Projeto] <img width="2485" height="900" alt="Captura de tela 2026-07-14 215220" src="https://github.com/user-attachments/assets/c5ba29f7-b643-4698-9ae1-c18a9d21238f" />
 
 ## ✨ Funcionalidades
 
@@ -37,6 +37,8 @@ Foi dado um foco especial à interface do usuário para criar um ambiente modern
 
 Como é um projeto Vanilla (HTML, CSS e JS puros), não é necessária nenhuma instalação complexa.
 
-1. Faça o clone deste repositório:
-```bash
-git clone [https://github.com/SEU_USUARIO/oliveiras-pizzas.git](https://github.com/SEU_USUARIO/oliveiras-pizzas.git)
+1. Faça o clone deste repositório executando o comando abaixo no seu terminal:
+`git clone https://github.com/natr-oliveira/Projeto-Pizzas.git`
+
+2. Abra a pasta do projeto.
+3. Dê um duplo clique no arquivo `index.html` para abrir no seu navegador padrão.
