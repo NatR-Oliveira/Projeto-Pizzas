@@ -2,9 +2,9 @@
 
 Um e-commerce de delivery focado em experiência do usuário (UX) e design limpo. Este projeto simula a interface completa de um pedido de pizza, desde a escolha no cardápio até a finalização no carrinho, com cálculos dinâmicos de preço e animações fluídas.
 
-> 🔗 **[Clique aqui para ver o projeto online] (https://natr-oliveira.github.io/Projeto-Pizzas/)**
+> 🔗 https://natr-oliveira.github.io/Projeto-Pizzas/
 
-![Preview do Projeto] <img width="2485" height="900" alt="Captura de tela 2026-07-14 215220" src="https://github.com/user-attachments/assets/c5ba29f7-b643-4698-9ae1-c18a9d21238f" />
+] <img width="2485" height="900" alt="Captura de tela 2026-07-14 215220" src="https://github.com/user-attachments/assets/c5ba29f7-b643-4698-9ae1-c18a9d21238f" />
 
 ## ✨ Funcionalidades
 
